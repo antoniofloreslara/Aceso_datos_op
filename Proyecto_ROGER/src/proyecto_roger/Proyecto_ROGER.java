@@ -158,10 +158,10 @@ public class Proyecto_ROGER {
                     cs.registerOutParameter(1, Types.VARCHAR);
                     cs.setInt(2, 4);
                     cs.execute();
-                    System.out.println("Tripulación: " + cs.getString(1));
+                    System.out.println("Tripulacion: " + cs.getString(1));
                     cs.close();
                 }
-                default -> System.out.println("Opcion inválida.");
+                default -> System.out.println("Opcion invalida.");
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar procedimiento/función: " + e.getMessage());
@@ -185,7 +185,7 @@ public class Proyecto_ROGER {
     private static boolean conexionActiva() {
         try {
             if (conn == null || conn.isClosed()) {
-                System.out.println("No hay conexion activa. Usa la opción 1 primero.");
+                System.out.println("No hay conexion activa. Usa la opcion 1 primero.");
                 return false;
             }
         } catch (SQLException e) {
