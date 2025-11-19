@@ -158,6 +158,9 @@ public class pnlDML extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        btnPirata = new javax.swing.JButton();
+        btnMarina = new javax.swing.JButton();
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -177,6 +180,7 @@ public class pnlDML extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -223,6 +227,35 @@ public class pnlDML extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanel1.add(jPanel2, gridBagConstraints);
 
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        btnPirata.setText("PIRATAS");
+        btnPirata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPirataActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        jPanel3.add(btnPirata, gridBagConstraints);
+
+        btnMarina.setText("MARINA");
+        btnMarina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarinaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        jPanel3.add(btnMarina, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        jPanel1.add(jPanel3, gridBagConstraints);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -247,12 +280,25 @@ public class pnlDML extends javax.swing.JPanel {
         eliminar();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnPirataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPirataActionPerformed
+        Piratas pt = new Piratas();
+        pt.setVisible(true);
+    }//GEN-LAST:event_btnPirataActionPerformed
+
+    private void btnMarinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarinaActionPerformed
+        Marina mr = new Marina();
+        mr.setVisible(true);
+    }//GEN-LAST:event_btnMarinaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
+    private javax.swing.JButton btnMarina;
+    private javax.swing.JButton btnPirata;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
