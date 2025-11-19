@@ -55,8 +55,7 @@ public class pnlDML extends javax.swing.JPanel {
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "ERROR: " + e.getMessage());
     }
-}
-
+  }
 
     private void actualizar() {
         try {
