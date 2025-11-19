@@ -24,33 +24,39 @@ public class pnlDML extends javax.swing.JPanel {
     }
 
     private void insertar() {
-        try {
-            Connection con = BBDD.getConexion();
-            if (con == null) {
-                JOptionPane.showMessageDialog(this, "ERROR: No hay conexión a la base de datos.");
-                return;
-            }
-
-            String idPersonaje = JOptionPane.showInputDialog("ID del Personaje:");
-            String nombre = JOptionPane.showInputDialog("Nombre del personaje:");
-            String reinoOrigen = JOptionPane.showInputDialog("Reino de origen:");
-            String tipoPersonaje = JOptionPane.showInputDialog("Tipo de personaje:");
-
-            String sql = "INSERT INTO Personaje (id_personaje, nombre, reino_origen, tipo_personaje) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(idPersonaje));
-            ps.setString(2, nombre);
-            ps.setString(3, reinoOrigen);
-            ps.setString(4, tipoPersonaje);
-
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Registro insertado correctamente.");
-            cargarTabla();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "ERROR al insertar: " + e.getMessage());
+    Connection con = null;
+    try {
+        con = BBDD.getConexion();
+        if (con == null) {
+            JOptionPane.showMessageDialog(this, "ERROR: No hay conexión a la base de datos.");
+            return;
         }
+
+        String idPersonaje = JOptionPane.showInputDialog("ID del Personaje:");
+        String nombre = JOptionPane.showInputDialog("Nombre del personaje:");
+        String reinoOrigen = JOptionPane.showInputDialog("Reino de origen:");
+        String tipoPersonaje = JOptionPane.showInputDialog("Tipo de personaje:");
+
+        String sql = "INSERT INTO Personaje (id_personaje, nombre, reino_origen, tipo_personaje) VALUES (?, ?, ?, ?)";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, Integer.parseInt(idPersonaje));
+        ps.setString(2, nombre);
+        ps.setString(3, reinoOrigen);
+        ps.setString(4, tipoPersonaje);
+
+        ps.executeUpdate(); // Aquí salta el trigger si hay conflicto
+
+        JOptionPane.showMessageDialog(this, "Registro insertado correctamente.");
+        cargarTabla();
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "ERROR al insertar: " + e.getMessage());
+        try { if (con != null) con.rollback(); } catch (SQLException ex) {}
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "ERROR: " + e.getMessage());
     }
+}
+
 
     private void actualizar() {
         try {
