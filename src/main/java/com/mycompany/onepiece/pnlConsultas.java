@@ -26,18 +26,44 @@ public class pnlConsultas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btnNormales = new javax.swing.JButton();
+        btnJoin = new javax.swing.JButton();
+        btnGrupBy = new javax.swing.JButton();
+        btnSubconsultas = new javax.swing.JButton();
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 2, 15, 15));
+
+        btnNormales.setText("Normales");
+        jPanel1.add(btnNormales);
+
+        btnJoin.setText("JOIN");
+        jPanel1.add(btnJoin);
+
+        btnGrupBy.setText("Group By");
+        jPanel1.add(btnGrupBy);
+
+        btnSubconsultas.setText("Subconsultas");
+        jPanel1.add(btnSubconsultas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGrupBy;
+    private javax.swing.JButton btnJoin;
+    private javax.swing.JButton btnNormales;
+    private javax.swing.JButton btnSubconsultas;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
